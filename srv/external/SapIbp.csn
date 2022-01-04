@@ -1,0 +1,857 @@
+{
+    "meta": {
+      "creator": "cds-dk 4.7.1"
+    },
+    "$version": "2.0",
+    "definitions": {
+      "SapIbp": {
+        "kind": "service",
+        "@cds.external": true
+      },
+      "SapIbp.cancelKeyFigureDeltaLoad": {
+        "kind": "function",
+        "params": {
+          "P_DeltaQueryID": {
+            "type": "cds.LargeString"
+          }
+        },
+        "returns": {
+          "items": {
+            "type": "SapIbp.ValueResultSet"
+          }
+        }
+      },
+      
+      "SapIbp.getExportResult": {
+        "kind": "function",
+        "params": {
+          "P_TransactionID": {
+            "type": "cds.LargeString"
+          }
+        },
+        "returns": {
+          "items": {
+            "type": "SapIbp.ValueResultSet"
+          }
+        }
+      },
+      "SapIbp.getTransactionID": {
+        "kind": "function",
+        "returns": {
+          "type": "SapIbp.ValueResultSet"
+        }
+      },
+      "SapIbp.executeKeyFigureDeltaLoad": {
+        "kind": "function",
+        "params": {
+          "P_DeltaQueryID": {
+            "type": "cds.LargeString"
+          }
+        },
+        "returns": {
+          "items": {
+            "type": "SapIbp.ValueResultSet"
+          }
+        }
+      },
+      "SapIbp.getStatusKeyFigureDeltaLoad": {
+        "kind": "function",
+        "params": {
+          "P_DeltaQueryID": {
+            "type": "cds.LargeString"
+          }
+        },
+        "returns": {
+          "items": {
+            "type": "SapIbp.ValueResultSet"
+          }
+        }
+      },
+      "SapIbp.resetKeyFigureDeltaLoad": {
+        "kind": "function",
+        "params": {
+          "P_DeltaQueryID": {
+            "type": "cds.LargeString"
+          }
+        },
+        "returns": {
+          "items": {
+            "type": "SapIbp.ValueResultSet"
+          }
+        }
+      },
+      "SapIbp.confirmKeyFigureDeltaLoad": {
+        "kind": "function",
+        "params": {
+          "P_DeltaQueryID": {
+            "type": "cds.LargeString"
+          }
+        },
+        "returns": {
+          "items": {
+            "type": "SapIbp.ValueResultSet"
+          }
+        }
+      },
+      "SapIbp.KeyFigureDeltaDefinitionSet": {
+        "kind": "entity",
+        "@cds.persistence.skip": true,
+        "@sap.content.version": "1",
+        "elements": {
+          "DeltaQueryID": {
+            "key": true,
+            "type": "cds.String",
+            "length": 32,
+            "@sap.unicode": "false",
+            "@sap.label": "Delta query ID",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          },
+          "DeltaQueryDescription": {
+            "type": "cds.String",
+            "length": 250,
+            "@sap.unicode": "false",
+            "@sap.label": "Delta query desc.",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          },
+          "PlanningAreaID": {
+            "type": "cds.String",
+            "length": 10,
+            "@sap.unicode": "false",
+            "@sap.label": "Planning Area",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          },
+          "DeltaQuerySelect": {
+            "type": "cds.LargeString",
+            "@sap.unicode": "false",
+            "@sap.label": "Delta query select",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          },
+          "DeltaQueryFilter": {
+            "type": "cds.LargeString",
+            "@sap.unicode": "false",
+            "@sap.label": "Delta query filter",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          }
+        }
+      },
+      "SapIbp.ValueResultSet": {
+        "kind": "entity",
+        "@cds.persistence.skip": true,
+        "@sap.content.version": "1",
+        "elements": {
+          "Name": {
+            "key": true,
+            "type": "cds.LargeString",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          },
+          "Value": {
+            "type": "cds.LargeString",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          }
+        }
+      },
+      "SapIbp.BTPPROMO": {
+        "kind": "entity",
+        "@cds.persistence.skip": true,
+        "@sap.label": "Planning Area BTPPROMO",
+        "@sap.semantics": "aggregate",
+        "@sap.content.version": "1",
+        "elements": {
+          "ID": {
+            "key": true,
+            "type": "cds.Integer64",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "ID",
+            "@sap.label": "ID",
+            "@sap.quickinfo": "ID",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "VERSIONID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Version ID",
+            "@sap.label": "Version ID",
+            "@sap.quickinfo": "Version ID",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "VERSIONNAME": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Version Name",
+            "@sap.label": "Version Name",
+            "@sap.quickinfo": "Version Name",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "SCENARIOID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Scenario ID",
+            "@sap.label": "Scenario ID",
+            "@sap.quickinfo": "Scenario ID",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "SCENARIONAME": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Scenario Name",
+            "@sap.label": "Scenario Name",
+            "@sap.quickinfo": "Scenario Name",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "ABCDESCR": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "ABC Desc",
+            "@sap.label": "ABC Desc",
+            "@sap.quickinfo": "ABC Desc",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "ABCID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "ABC Code",
+            "@sap.label": "ABC Code",
+            "@sap.quickinfo": "ABC Code",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "BRAND": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Brand ID",
+            "@sap.label": "Brand ID",
+            "@sap.quickinfo": "Brand ID",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "CUSTCHANNEL": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Channel",
+            "@sap.label": "Channel",
+            "@sap.quickinfo": "Channel",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "CUSTCOUNTRY": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Customer Country",
+            "@sap.label": "Customer Country",
+            "@sap.quickinfo": "Customer Country",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "CUSTDESCR": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Customer Desc.",
+            "@sap.label": "Customer Desc.",
+            "@sap.quickinfo": "Customer Desc.",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "CUSTGROUP": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Customer Group / Segment",
+            "@sap.label": "Customer Group / Segment",
+            "@sap.quickinfo": "Customer Group / Segment",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "CUSTID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Customer ID",
+            "@sap.label": "Customer ID",
+            "@sap.quickinfo": "Customer ID",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "CUSTREGION": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Customer Region",
+            "@sap.label": "Customer Region",
+            "@sap.quickinfo": "Customer Region",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "CUSTSALESREP": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Sales Rep.",
+            "@sap.label": "Sales Rep.",
+            "@sap.quickinfo": "Sales Rep.",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "MATTYPEID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Material Type ID",
+            "@sap.label": "Material Type ID",
+            "@sap.quickinfo": "Material Type ID",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "PRDDESCR": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Product Desc",
+            "@sap.label": "Product Desc",
+            "@sap.quickinfo": "Product Desc",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "PRDFAMILY": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Product Family",
+            "@sap.label": "Product Family",
+            "@sap.quickinfo": "Product Family",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "PRDGROUP": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Product Group",
+            "@sap.label": "Product Group",
+            "@sap.quickinfo": "Product Group",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "PRDID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Product ID",
+            "@sap.label": "Product ID",
+            "@sap.quickinfo": "Product ID",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "UOMDESCR": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Base UOM Desc.",
+            "@sap.label": "Base UOM Desc.",
+            "@sap.quickinfo": "Base UOM Desc.",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "UOMID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Base UOM",
+            "@sap.label": "Base UOM",
+            "@sap.quickinfo": "Base UOM",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "XYZDESCR": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "XYZ Desc",
+            "@sap.label": "XYZ Desc",
+            "@sap.quickinfo": "XYZ Desc",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "XYZID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "XYZ Code",
+            "@sap.label": "XYZ Code",
+            "@sap.quickinfo": "XYZ Code",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "ZBTPPLANNER": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Planner (Promo)",
+            "@sap.label": "Planner (Promo)",
+            "@sap.quickinfo": "Planner (Promo)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "ZPROMOENDDATE": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Promotion End Date",
+            "@sap.label": "Promotion End Date",
+            "@sap.quickinfo": "Promotion End Date",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "ZPROMOID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Promotion ID (BTP)",
+            "@sap.label": "Promotion ID (BTP)",
+            "@sap.quickinfo": "Promotion ID (BTP)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "ZPROMOSTATUS": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Promotion Status (BTP)",
+            "@sap.label": "Promotion Status (BTP)",
+            "@sap.quickinfo": "Promotion Status (BTP)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "ZPROMOSTDATE": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Promotion Start Date",
+            "@sap.label": "Promotion Start Date",
+            "@sap.quickinfo": "Promotion Start Date",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "ZPROMOTYPE": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.filter.restriction": "multi-value",
+            "@sap.heading": "Promotion Type (BTP)",
+            "@sap.label": "Promotion Type (BTP)",
+            "@sap.quickinfo": "Promotion Type (BTP)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.value.list": "standard"
+          },
+          "PERIODID0_TSTAMP": {
+            "type": "cds.Date",
+            "@sap.aggregation.role": "dimension",
+            "@sap.display.format": "Date",
+            "@sap.filter.restriction": "interval",
+            "@sap.heading": "Day (As Timestamp)",
+            "@sap.quickinfo": "Day (As Timestamp)",
+            "@sap.label": "Day (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID0_REL": {
+            "type": "cds.Integer64",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Day (As Timestamp)",
+            "@sap.label": "Day (As Timestamp)",
+            "@sap.quickinfo": "Day (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID5_TSTAMP": {
+            "type": "cds.Date",
+            "@sap.aggregation.role": "dimension",
+            "@sap.display.format": "Date",
+            "@sap.filter.restriction": "interval",
+            "@sap.heading": "Week (technical) (As Timestamp)",
+            "@sap.quickinfo": "Week (technical) (As Timestamp)",
+            "@sap.label": "Week (technical) (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID5_REL": {
+            "type": "cds.Integer64",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Week (technical) (As Timestamp)",
+            "@sap.label": "Week (technical) (As Timestamp)",
+            "@sap.quickinfo": "Week (technical) (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID4_TSTAMP": {
+            "type": "cds.Date",
+            "@sap.aggregation.role": "dimension",
+            "@sap.display.format": "Date",
+            "@sap.filter.restriction": "interval",
+            "@sap.heading": "Week (As Timestamp)",
+            "@sap.quickinfo": "Week (As Timestamp)",
+            "@sap.label": "Week (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID4_REL": {
+            "type": "cds.Integer64",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Week (As Timestamp)",
+            "@sap.label": "Week (As Timestamp)",
+            "@sap.quickinfo": "Week (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID3_TSTAMP": {
+            "type": "cds.Date",
+            "@sap.aggregation.role": "dimension",
+            "@sap.display.format": "Date",
+            "@sap.filter.restriction": "interval",
+            "@sap.heading": "Month (As Timestamp)",
+            "@sap.quickinfo": "Month (As Timestamp)",
+            "@sap.label": "Month (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID3_REL": {
+            "type": "cds.Integer64",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Month (As Timestamp)",
+            "@sap.label": "Month (As Timestamp)",
+            "@sap.quickinfo": "Month (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID2_TSTAMP": {
+            "type": "cds.Date",
+            "@sap.aggregation.role": "dimension",
+            "@sap.display.format": "Date",
+            "@sap.filter.restriction": "interval",
+            "@sap.heading": "Quarter (As Timestamp)",
+            "@sap.quickinfo": "Quarter (As Timestamp)",
+            "@sap.label": "Quarter (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID2_REL": {
+            "type": "cds.Integer64",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Quarter (As Timestamp)",
+            "@sap.label": "Quarter (As Timestamp)",
+            "@sap.quickinfo": "Quarter (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID1_TSTAMP": {
+            "type": "cds.Date",
+            "@sap.aggregation.role": "dimension",
+            "@sap.display.format": "Date",
+            "@sap.filter.restriction": "interval",
+            "@sap.heading": "Year (As Timestamp)",
+            "@sap.quickinfo": "Year (As Timestamp)",
+            "@sap.label": "Year (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PERIODID1_REL": {
+            "type": "cds.Integer64",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Year (As Timestamp)",
+            "@sap.label": "Year (As Timestamp)",
+            "@sap.quickinfo": "Year (As Timestamp)",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "ACTUALSQTY": {
+            "type": "cds.Decimal",
+            "precision": 18,
+            "scale": 6,
+            "@sap.aggregation.role": "measure",
+            "@sap.heading": "Actuals Qty",
+            "@sap.label": "Actuals Qty",
+            "@sap.quickinfo": "Actuals Qty",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "BASELINEFCSTQTY": {
+            "type": "cds.Decimal",
+            "precision": 18,
+            "scale": 6,
+            "@sap.aggregation.role": "measure",
+            "@sap.heading": "Baseline Forecast Qty",
+            "@sap.label": "Baseline Forecast Qty",
+            "@sap.quickinfo": "Baseline Forecast Qty",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "FINALFORECASTQTY": {
+            "type": "cds.Decimal",
+            "precision": 18,
+            "scale": 6,
+            "@sap.aggregation.role": "measure",
+            "@sap.heading": "Final Forecast Qty",
+            "@sap.label": "Final Forecast Qty",
+            "@sap.quickinfo": "Final Forecast Qty",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "PROMOQTY": {
+            "type": "cds.Decimal",
+            "precision": 18,
+            "scale": 6,
+            "@sap.aggregation.role": "measure",
+            "@sap.heading": "Promotion Qty",
+            "@sap.label": "Promotion Qty",
+            "@sap.quickinfo": "Promotion Qty",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "MASTER_DATA_TYPE": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Master Data Type",
+            "@sap.label": "Master Data Type",
+            "@sap.quickinfo": "Master Data Type",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "LASTMODIFIEDDATE": {
+            "type": "cds.Timestamp",
+            "@odata.type": "Edm.DateTime",
+            "@odata.precision": 7,
+            "@sap.aggregation.role": "dimension",
+            "@sap.display.format": "Date",
+            "@sap.filter.restriction": "interval",
+            "@sap.heading": "Last Modified Date",
+            "@sap.quickinfo": "Last Modified Date",
+            "@sap.label": "Last Modified Date",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "CREATEDDATE": {
+            "type": "cds.Timestamp",
+            "@odata.type": "Edm.DateTime",
+            "@odata.precision": 7,
+            "@sap.aggregation.role": "dimension",
+            "@sap.display.format": "Date",
+            "@sap.filter.restriction": "interval",
+            "@sap.heading": "Created Date",
+            "@sap.quickinfo": "Created Date",
+            "@sap.label": "Created Date",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          }
+        }
+      },
+      "SapIbp.BTPPROMOTrans": {
+        "kind": "entity",
+        "@cds.persistence.skip": true,
+        "@sap.content.version": "1",
+        "elements": {
+          "Transactionid": {
+            "key": true,
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Transaction ID",
+            "@sap.label": "Transaction ID",
+            "@sap.quickinfo": "Transaction ID",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          },
+          "AggregationLevelFieldsString": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Export Fields",
+            "@sap.label": "Export Fields",
+            "@sap.quickinfo": "Export Fields",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "DoCommit": {
+            "type": "cds.Boolean",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Do Commit",
+            "@sap.label": "Do Commit",
+            "@sap.quickinfo": "Do Commit",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "VersionID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Version ID",
+            "@sap.label": "Version ID",
+            "@sap.quickinfo": "Version ID",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "ScenarioID": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Scenario ID",
+            "@sap.label": "Scenario ID",
+            "@sap.quickinfo": "Scenario ID",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "NavBTPPROMO": {
+            "@cds.ambiguous": "missing on condition?",
+            "type": "cds.Association",
+            "target": "SapIbp.BTPPROMO",
+            "cardinality": {
+              "max": "*"
+            },
+            "on": [
+              {
+                "ref": [
+                  "NavBTPPROMO",
+                  "ID"
+                ]
+              },
+              "=",
+              {
+                "ref": [
+                  "Transactionid"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "SapIbp.BTPPROMOMessage": {
+        "kind": "entity",
+        "@cds.persistence.skip": true,
+        "@sap.content.version": "1",
+        "elements": {
+          "Transactionid": {
+            "key": true,
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Transaction ID",
+            "@sap.label": "Transaction ID",
+            "@sap.quickinfo": "Transaction ID",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false",
+            "@sap.sortable": "false",
+            "@sap.filterable": "false"
+          },
+          "ExceptionId": {
+            "key": true,
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Export Fields",
+            "@sap.label": "Export Fields",
+            "@sap.quickinfo": "Export Fields",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "MsgText": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Export Fields",
+            "@sap.label": "Export Fields",
+            "@sap.quickinfo": "Export Fields",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "TimeStmp": {
+            "type": "cds.LargeString",
+            "@sap.aggregation.role": "dimension",
+            "@sap.heading": "Export Fields",
+            "@sap.label": "Export Fields",
+            "@sap.quickinfo": "Export Fields",
+            "@sap.unicode": "false",
+            "@sap.creatable": "false",
+            "@sap.updatable": "false"
+          },
+          "NavBTPPROMOMessage": {
+            "@cds.ambiguous": "missing on condition?",
+            "type": "cds.Association",
+            "target": "SapIbp.BTPPROMO",
+            "on": [
+              {
+                "ref": [
+                  "NavBTPPROMOMessage",
+                  "ID"
+                ]
+              },
+              "=",
+              {
+                "ref": [
+                  "Transactionid"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
